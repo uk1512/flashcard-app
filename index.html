@@ -18,8 +18,9 @@
     <div id="page-title">
       <p>FlashCard</p>
     </div>
-    <div class="toggle-mode">
-      <button id="study-mode">Study Mode</button>
+    <div class="toggle-mode" id="toggle">
+      <div class="slider"></div>
+      <button id="study-mode" class="active">Study Mode</button>
       <button id="all-cards">All Cards</button>
     </div>
   </header>
@@ -59,7 +60,7 @@
 
       </div>
       <button onclick="master()" id="master">I know This</button>
-      <button onclick="reset()" id="reset">
+      <button id="reset">
         <img src="reset-svgrepo-com.svg">Reset Progress</button>
     </div>
     <hr>

@@ -32,23 +32,50 @@ header {
     display: none;
 }
 .toggle-mode {
+    position: relative;
+    display: flex;
     border: 2px solid black;
     padding: 5px;
     border-radius: 35px;
     box-shadow: 2px 2px 1px black;
+    background: white;
+    
+}
+.slider{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 50%;
+    height: calc(100% - 10px);
+    background: orange;
+    border-radius: 35px;
+    transition: all 0.3s ease;
+    z-index: 0;
 }
 .toggle-mode button {
+    flex: 1;
     border: none;
-    background-color: white;
+    background-color: transparent;
     font-family: inherit;
     font-weight: 600;
     border-radius: 30px;
+    padding: 10px;
+    z-index: 1;
+    color: black;
+    transition: 0.3s;
 }
-#study-mode{
-    border: 2px solid black;
+.toggle-mode button.active{
+    color: white;
+    font-weight: 700;
+}
+
+
+
+
+#study-mode,#all-cards{
     padding: 14px;
-    background-color: orange;
 }
+
 #flashcard-categories {
     padding: 16px;
     display: flex;
@@ -246,6 +273,7 @@ header {
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap:20px;
+        align-items: stretch;
     }
     #study-statistics {
     border: 2px solid black;
@@ -255,6 +283,7 @@ header {
     padding: 5px 16px;
     display: grid;
     grid-template-rows: 100px 1fr 1fr 1fr 1fr;
+    margin-top: 19px;
 
     }
     .icon{
@@ -271,6 +300,10 @@ header {
         position: absolute;
         right: 1.6rem;
     }
+    #total-cards,#mastered, #in-progress,#not-started {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
 
 
 }

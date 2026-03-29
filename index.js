@@ -1,6 +1,6 @@
 
 
-const cards = [
+let cards = [
     {
         category: "Web Development",
         question: "What does HTML stand for?",
@@ -89,13 +89,53 @@ const cards = [
 
 ]
 
+let saved = localStorage.getItem("cards")
+
+if(saved){
+    cards = JSON.parse(saved)
+}
+
+function save() {
+    localStorage.setItem("cards",JSON.stringify(cards))
+}
+
 let filteredCards = [...cards]
 let currentIndex = 0
 let showAnswers = false
 
+
+const studyBtn = document.getElementById("study-mode")
+const allBtn = document.getElementById("all-cards")
+const slider = document.querySelector(".slider")
+
+let mode = "study"
+
+studyBtn.addEventListener("click", ()=> {
+    mode = "study"
+
+    slider.style.transform = "translateX(0%)"
+    studyBtn.classList.add("active")
+    allBtn.classList.remove("active")
+
+    displayCards()
+})
+
+allBtn.addEventListener("click", ()=> {
+    mode="all"
+    slider.style.transform = "translateX(90%)"
+
+    allBtn.classList.add("active")
+    studyBtn.classList.remove("active")
+
+    displayCards()
+
+})
+
+
 document.getElementById("categories").addEventListener("change", filterCards)
 
 function filterCards() {
+    let filtered = cards
     const selected = document.getElementById("categories").value
 
     if(selected === "all") {
@@ -104,10 +144,12 @@ function filterCards() {
         filteredCards = cards.filter(card => card.category === selected)
     }
     displayCards()
+    return filtered
 }
 
 function displayCards() {
     const card = filteredCards[currentIndex]
+    let showAnswers = false
 
     document.getElementById("type").innerText = card.category
     document.getElementById("question").innerText = card.question
@@ -117,6 +159,7 @@ function displayCards() {
 }
 
 function toggleAnswer() {
+
     const card = filteredCards[currentIndex]
 
     if(!showAnswers) {
@@ -133,6 +176,7 @@ function toggleAnswer() {
 }
 
 function prevCard() {
+    let showAnswers = false
     currentIndex--;
     if(currentIndex < 0){
         currentIndex = filteredCards.length - 1
@@ -142,6 +186,7 @@ function prevCard() {
 }
 
 function nextCard() {
+    let showAnswers = false
     currentIndex++;
     if(currentIndex >= filteredCards.length){
         currentIndex = 0
@@ -153,6 +198,7 @@ function nextCard() {
 function master() {
     filteredCards[currentIndex].status = "mastered"
 
+    save()
     updateStats()
     updateProgressBar()
     nextCard()
@@ -167,6 +213,8 @@ function updateStats() {
     document.getElementById("mastered-number").innerText = mastered
     document.getElementById("in-progress-number").innerText = progress
     document.getElementById("not-started-number").innerText = notStarted
+
+    save()
 }
 
 function updateProgressBar() {
@@ -174,6 +222,30 @@ function updateProgressBar() {
 
     let percent = (mastered/filteredCards.length)*100
     document.getElementById("progress-bar").style.width = percent + "%"
+}
+
+document.getElementById("shuffle").addEventListener("click",shuffleCards)
+
+function shuffleCards() {
+    let filtered = filterCards()
+
+    filtered.sort(()=> Math.random()-0.5)
+
+    currentIndex = 0
+
+    displayCards(filtered)
+}
+
+document.getElementById("reset").addEventListener("click",reset)
+
+function reset() {
+    cards.forEach(card => {
+        card.status = "new"
+    })
+    save()
+    displayCards()
+    updateStats()
+    updateProgressBar()
 }
 
 displayCards()
