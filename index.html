@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+  <header>
+    <div class="icon">
+      <img src="flash-card.png" id="flash-icon">
+    </div>
+    <div id="page-title">
+      <p>FlashCard</p>
+    </div>
+    <div class="toggle-mode">
+      <button id="study-mode">Study Mode</button>
+      <button id="all-cards">All Cards</button>
+    </div>
+  </header>
+  <main>
+    <div id="flashcard-container">
+    <div id="flashcard-categories">
+      <select id="categories">
+        <option value="all">All Categories</option>
+        <option value="Web Development">Web Development</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="CSS">CSS</option>
+        <option value="Databases">Databases</option>
+        <option value="Programming">Programming</option>
+        <option value="CSS">CSS</option>
+
+      </select>
+      <button id="shuffle">
+        <img src="shuffle-svgrepo-com.svg">Shuffle</button>
+    </div>
+    <div id="hide-master">
+        <input type="checkbox" value="hide">Hide Mastered
+    </div>
+    <hr>
+    <div id="flashcard-section">
+      <div id="flashcard" onclick="toggleAnswer()">
+        <div id="type">
+          <p></p>
+        </div>
+        <div id="question-section">
+          <p id="question"></p>
+          <p id="revealAnswer">Click to reveal answer</p>
+        </div>
+        <div id="progress-container">
+          <div id="progress-bar"></div>
+
+        </div>
+
+      </div>
+      <button onclick="master()" id="master">I know This</button>
+      <button onclick="reset()" id="reset">
+        <img src="reset-svgrepo-com.svg">Reset Progress</button>
+    </div>
+    <hr>
+    <div id="navbar">
+      <button onclick="prevCard()"><</button>
+      <p>Card 1 of 40</p>
+      <button onclick="nextCard()">></button>
+    </div>
+  </div>
+  <div id="study-statistics">
+    <h2>Study Statistics</h2>
+    <div id="total-cards">
+      <div id="total-card-details">
+        <p id="total-card-title">Total Cards</p>
+        <p id="card-number">40</p>
+      </div>
+      <div id="layer-img">
+        <img src="layer-svgrepo-com.svg">
+      </div>
+    </div>
+    <div id="mastered">
+      <div id="mastered-card-details">
+        <p id="mastered-title">Mastered</p>
+        <p id="mastered-number">11</p>
+      </div>
+      <div id="brain-img">
+        <img src="brain-svgrepo-com.svg">
+      </div>
+    </div>
+    <div id="in-progress">
+      <div id="in-progress-details">
+        <p id="in-progress-title">In Progress</p>
+        <p id="in-progress-number">21</p>
+      </div>
+      <div id="book-img">
+        <img src="book-open-svgrepo-com.svg">
+      </div>
+    </div>
+    <div id="not-started">
+      <div id="not-started-details">
+        <p id="not-started-title">Not Started</p>
+        <p id="not-started-number">8</p>
+      </div>
+      <div id="inbox-img">
+        <img src="inbox-alt-1-svgrepo-com.svg">
+      </div>
+    </div>
+    
+  </div>
+  </main>
+    
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Inter',sans-serif;
+    padding: 1.6rem;
+}
+header {
+    display: grid;
+    grid-template-columns: 100px 210px;
+    align-items: center;
+}
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    margin-left: 0;
+}
+.icon img {
+    width: 40px;
+    height: 40px;
+    transform: translateX(5%);
+    margin-left: 0;
+}
+#page-title{
+    display: none;
+}
+.toggle-mode {
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 35px;
+    box-shadow: 2px 2px 1px black;
+}
+.toggle-mode button {
+    border: none;
+    background-color: white;
+    font-family: inherit;
+    font-weight: 600;
+    border-radius: 30px;
+}
+#study-mode{
+    border: 2px solid black;
+    padding: 14px;
+    background-color: orange;
+}
+#flashcard-categories {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+}
+#categories,#shuffle {
+    height: 40px;
+    padding: 0 16px;
+    border: 2px solid black;
+    border-radius: 32px;
+    font-size: 14px;
+    background-color: white;
+    box-shadow: 2px 2px 1px black;
+}
+#categories {
+    appearance: none;
+}
+#shuffle {
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    max-width: 80px;
+}
+#shuffle img {
+    width: 100%;
+    height: 25px;
+}
+#hide-master {
+    padding: 0px 16px;
+}
+#flashcard{
+    background-color: #f78fd6;
+    text-align: center;
+    padding: 16px;
+    height: 350px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid black;
+    box-shadow: 3px 3px 1px black;
+    border-radius: 16px
+}
+#type{
+    background-color: white;
+    border-radius: 999px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 auto;
+    padding: 3px 18px;
+}
+#question {
+    font-size: 24px;
+    font-weight: 700;
+}
+#flashcard-container {
+    margin-top: 16px;
+    border: 2px solid black;
+    border-radius: 16px;
+    box-shadow: 2px 2px 1px black;
+}
+#flashcard-section {
+    padding: 12px;
+}
+#progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffa500, #ffcc70);
+  transition: width 0.3s ease;
+}
+#flashcard-section button {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 24px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: white;
+    box-shadow: 2px 2px 1px black;
+    
+}
+#flashcard-section #master {
+    background-color: orange;
+    margin-bottom: 8px;
+}
+#reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+#reset img{
+    width: 20px;
+    height: 20px;
+}
+#navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: rgba(78, 78, 78, 0.74);
+    font-weight: 600;
+    padding: 12px;
+}
+#navbar button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    border: 1px solid rgba(80, 76, 76, 0.764);
+    background-color: white;
+}
+
+#study-statistics {
+    border: 2px solid black;
+    margin-top: 30px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 1px black;
+    padding: 5px 16px;
+}
+#total-cards,#mastered, #in-progress,#not-started {
+    border: 2px solid black;
+    border-radius: 16px;
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+#total-card-details,#mastered-card-details,#in-progress-details,#not-started-details {
+    padding: 5px 16px;
+}
+#total-card-title,#mastered-title,#in-progress-title,#not-started-title {
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+#card-number,#mastered-number,#in-progress-number,#not-started-number{
+    font-weight: 900;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+#total-cards img {
+    width: 30px;
+    height: 30px;
+
+}
+#mastered img {
+    width: 30px;
+    height: 30px;
+}
+#in-progress img {
+    width: 30px;
+    height: 30px;
+}
+#not-started img {
+    width: 30px;
+    height: 30px;
+}
+#layer-img {
+    background-color: rgba(35, 157, 238, 0.86);
+}
+#layer-img, #brain-img,#book-img,#inbox-img{
+    border: 1px solid black;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#brain-img {
+    background-color: rgb(81, 238, 165);
+}
+#book-img {
+    background-color: rgb(249, 80, 164);
+}
+#inbox-img {
+    background-color: rgba(244, 37, 255, 0.775);
+}
+
+@media(min-width: 768px){
+    main{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap:20px;
+    }
+    #study-statistics {
+    border: 2px solid black;
+    margin-top: 30px;
+    border-radius: 16px;
+    box-shadow: 3px 3px 1px black;
+    padding: 5px 16px;
+    display: grid;
+    grid-template-rows: 100px 1fr 1fr 1fr 1fr;
+
+    }
+    .icon{
+        position: relative;
+        left: 1.6rem;
+    }
+    #page-title {
+        display: inline-block;
+        font-size: 24px;
+        font-weight: 700;
+        
+    }
+    .toggle-mode {
+        position: absolute;
+        right: 1.6rem;
+    }
+
+
+}
