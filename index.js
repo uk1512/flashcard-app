@@ -112,6 +112,7 @@ let mode = "study"
 
 studyBtn.addEventListener("click", ()=> {
     mode = "study"
+    currentIndex = 0
 
     slider.style.transform = "translateX(0%)"
     studyBtn.classList.add("active")
@@ -122,6 +123,7 @@ studyBtn.addEventListener("click", ()=> {
 
 allBtn.addEventListener("click", ()=> {
     mode="all"
+    currentIndex = 0
     slider.style.transform = "translateX(90%)"
 
     allBtn.classList.add("active")
@@ -135,20 +137,22 @@ allBtn.addEventListener("click", ()=> {
 document.getElementById("categories").addEventListener("change", filterCards)
 
 function filterCards() {
-    let filtered = cards
+    let filtered = [...cards]
     const selected = document.getElementById("categories").value
 
-    if(selected === "all") {
-        filteredCards = [...cards]
-    }else{
-        filteredCards = cards.filter(card => card.category === selected)
+    if(selected !== "all"){
+        filtered = filtered.filter(card => card.category === selected)
     }
-    displayCards()
+
+    if(mode === "study"){
+        filtered = filtered.filter(card => card.status !== "mastered")
+    }
     return filtered
 }
 
 function displayCards() {
-    const card = filteredCards[currentIndex]
+    const filtered = filterCards()
+    const card = filtered[currentIndex]
     let showAnswers = false
 
     document.getElementById("type").innerText = card.category
